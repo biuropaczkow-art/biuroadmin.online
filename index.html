@@ -35,18 +35,23 @@
       "@type": "AccountingService",
       "@id": "https://biuroadmin.online/#biuro",
       "name": "Biuro Rachunkowe Jarosław Konik",
-      "legalName": "Biuro Rachunkowe Jarosław Konik",
+      "legalName": "JAROSŁAW KONIK BIURO RACHUNKOWE",
       "url": "https://biuroadmin.online/",
-      "image": "https://biuroadmin.online/og.png",
+      "telephone": "+48 77 431 66 11",
+      "email": "kontakt@biuroadmin.online",
       "taxID": "7532190370",
       "vatID": "PL7532190370",
-      "telephone": "+48 77 431 66 11",
-      "email": "biuro.paczkow@gmail.com",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "REGON",
+        "value": "160059549"
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ul. Jana Pawła II 15",
         "addressLocality": "Paczków",
         "postalCode": "48-370",
+        "addressRegion": "opolskie",
         "addressCountry": "PL"
       },
       "geo": {
@@ -57,26 +62,59 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
           "opens": "08:00",
           "closes": "16:00"
         }
       ],
-      "priceRange": "$$",
-      "sameAs": [
-        "https://portal.biuroadmin.online/"
-      ],
-      "areaServed": { "@type": "Country", "name": "PL" },
+      "areaServed": {
+        "@type": "Country",
+        "name": "PL"
+      },
       "inLanguage": "pl-PL",
       "knowsLanguage": "pl-PL",
+      "sameAs": [
+        "https://portal.biuroadmin.online",
+        "https://www.youtube.com/@adminbiuro7420"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Usługi księgowe",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Księgowość i rachunkowość" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kadry i płace" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rozliczenia ZUS" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Obsługa i konfiguracja KSeF" } }
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Księgowość i rachunkowość"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kadry i płace"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rozliczenia ZUS"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Obsługa i konfiguracja KSeF"
+            }
+          }
         ]
       }
     },
@@ -85,9 +123,10 @@
       "@id": "https://biuroadmin.online/#website",
       "url": "https://biuroadmin.online/",
       "name": "Biuro Rachunkowe Jarosław Konik",
-      "description": "Biuro rachunkowe z 23-letnim doświadczeniem. Księgowość, kadry, płace, rozliczenia ZUS i obsługa KSeF.",
       "inLanguage": "pl-PL",
-      "publisher": { "@id": "https://biuroadmin.online/#biuro" }
+      "publisher": {
+        "@id": "https://biuroadmin.online/#biuro"
+      }
     }
   ]
 }
@@ -249,8 +288,9 @@
 <footer>
   <div class="wrap">
     <b>Biuro Rachunkowe Jarosław Konik</b><br>
-    Księgowość, kadry, płace i rozliczenia ZUS<br>
-    NIP <span class="nip">7532190370</span>
+    ul. Jana Pawła II 15, 48-370 Paczków<br>
+    NIP <span class="nip">7532190370</span> · REGON <span class="nip">160059549</span> · tel. +48 77 431 66 11<br>
+    Księgowość, kadry, płace i rozliczenia ZUS
     <nav>
       <a href="https://portal.biuroadmin.online/">Strefa Klienta</a>
       <a href="#blog">Blog</a>
