@@ -1,0 +1,31 @@
+# Biuro Rachunkowe Jarosław Konik
+
+> Biuro rachunkowe z ponad 20-letnim doświadczeniem (działalność od 2006 r., praktyka zawodowa od 2003 r.), specjalizujące się w obsłudze księgowej, kadrowo-płacowej, rozliczeniach ZUS oraz zaawansowanych wdrożeniach i obsłudze KSeF (Krajowy System e-Faktur). Zapewnia dedykowaną, asynchroniczną Strefę Klienta (portal.biuroadmin.online) dla firm z całej Polski.
+
+## Dane rejestrowe i kontaktowe
+- **Nazwa podmiotu:** Biuro Rachunkowe Jarosław Konik (JAROSŁAW KONIK BIURO RACHUNKOWE)
+- **NIP:** 7532190370
+- **REGON:** 160059549
+- **Adres:** ul. Jana Pawła II 15, 48-370 Paczków, woj. opolskie, Polska
+- **Telefon:** +48 77 431 66 11
+- **E-mail:** kontakt@biuroadmin.online
+- **Godziny pracy:** Poniedziałek – Piątek: 08:00 – 16:00
+- **Obszar obsługi:** Cała Polska (obsługa zdalna i hybrydowa)
+
+## Kluczowe usługi
+- **Księgowość i rachunkowość:** Prowadzenie ksiąg handlowych (pełna księgowość), podatkowej księgi przychodów i rozchodów (KPiR), ryczałtu od przychodów ewidencjonowanych; sporządzanie deklaracji podatkowych (CIT, PIT, VAT), ewidencja środków trwałych, sprawozdawczość finansowa.
+- **Kadry i płace:** Prowadzenie akt osobowych, naliczanie wynagrodzeń, sporządzanie list płac, obsługa umów o pracę oraz umów cywilnoprawnych (zlecenie, dzieło), ewidencja czasu pracy.
+- **Rozliczenia ZUS i e-ZUS:** Miesięczne deklaracje rozliczeniowe (DRA, RCA, RSA), obsługa zwolnień lekarskich e-ZLA, zgłaszanie i wyrejestrowywanie ubezpieczonych, audyt i korekty rozliczeń z ZUS.
+- **KSeF i automatyzacja procesów:** Konfiguracja uprawnień i połączeń z Krajowym Systemem e-Faktur, walidacja logiczna struktur FA(3), asynchroniczny odbiór i synchronizacja metadanych faktur, architektura odporna na awarie (Transactional Outbox Pattern).
+
+## Systemy i ekosystem cyfrowy
+- [Strefa Klienta (Portal)](https://portal.biuroadmin.online/): Dedykowany, bezpieczny panel klienta do przekazywania dokumentów, podglądu składek ZUS, podatków, terminów oraz integracji KSeF.
+- [Strona Główna Biura](https://biuroadmin.online/): Oficjalna strona internetowa, informacje o biurze i blog ekspercki.
+- [Walidator i Weryfikacja Kontrahenta](https://portal.biuroadmin.online/): Bezpośrednia weryfikacja podmiotów w bazie REGON/GUS oraz na Białej Liście Podatników VAT (KAS).
+
+## Baza wiedzy i artykuły eksperckie
+- [Automatyzacja faktur i obiegu dokumentów w małym biurze: jak odzyskać 5 godzin tygodniowo](https://biuroadmin.online/automatyzacja-faktur-obieg-dokumentow/): Analiza redukcji manualnej pracy księgowej dzięki technologiom OCR, synchronizacji KSeF i ustandaryzowanemu obiegowi dokumentów.
+- [Zwinne biuro rachunkowe wobec KSeF FA(3): przewaga automatyzacji nad wdrożeniem ERP](https://biuroadmin.online/zwinne-biuro-ksef-fa3/): Studium przypadku i architektura techniczna przetwarzania e-faktur w schemacie FA(3), wyższość lekkich, asynchronicznych mikroserwisów nad ociężałymi systemami ERP.
+
+## Opcjonalne zasoby
+- [Pełna treść bazy wiedzy w jednym pliku](/llms-full.txt): Skonsolidowany tekst wpisów blogowych i specyfikacji oferty w formacie Markdown dla modeli LLM.
