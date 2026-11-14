@@ -41,12 +41,18 @@
       "url": "https://biuroadmin.online/",
       "telephone": "+48 77 431 66 11",
       "email": "kontakt@biuroadmin.online",
+      "priceRange": "$$",
       "taxID": "7532190370",
       "vatID": "PL7532190370",
       "identifier": {
         "@type": "PropertyValue",
         "propertyID": "REGON",
         "value": "160059549"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jarosław Konik",
+        "jobTitle": "Właściciel, Architekt Systemów i Główny Księgowy"
       },
       "address": {
         "@type": "PostalAddress",
@@ -87,34 +93,54 @@
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Usługi księgowe",
+        "name": "Usługi księgowe i podatkowe",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Księgowość i rachunkowość"
+              "name": "Księgowość i rachunkowość",
+              "serviceType": "Pełna księgowość, KPiR, ryczałt ewidencjonowany, deklaracje CIT, PIT i VAT",
+              "description": "Kompleksowe prowadzenie ksiąg rachunkowych, ewidencji podatkowych, środków trwałych oraz sprawozdawczości finansowej.",
+              "provider": {
+                "@id": "https://biuroadmin.online/#biuro"
+              }
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Kadry i płace"
+              "name": "Kadry i płace",
+              "serviceType": "Prowadzenie akt osobowych, listy płac, umowy o pracę i cywilnoprawne",
+              "description": "Kompleksowa obsługa kadrowo-płacowa pracowników, naliczanie wynagrodzeń, ewidencja urlopów i czasu pracy.",
+              "provider": {
+                "@id": "https://biuroadmin.online/#biuro"
+              }
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Rozliczenia ZUS"
+              "name": "Rozliczenia ZUS",
+              "serviceType": "Deklaracje DRA/RCA/RSA, obsługa e-ZLA i rozliczenia składek",
+              "description": "Comiesięczne rozliczenia z Zakładem Ubezpieczeń Społecznych, korekty, zgłoszenia i optymalizacja składek.",
+              "provider": {
+                "@id": "https://biuroadmin.online/#biuro"
+              }
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Obsługa i konfiguracja KSeF"
+              "name": "Obsługa i konfiguracja KSeF",
+              "serviceType": "Wdrożenia Krajowego Systemu e-Faktur, walidacja FA(3), Transactional Outbox Pattern",
+              "description": "Zaawansowana obsługa integracji z KSeF z gwarancją odporności na awarie, deduplikacją SHA-256 i synchronizacją faktur.",
+              "provider": {
+                "@id": "https://biuroadmin.online/#biuro"
+              }
             }
           }
         ]
@@ -129,6 +155,44 @@
       "publisher": {
         "@id": "https://biuroadmin.online/#biuro"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://biuroadmin.online/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jakie usługi oferuje Biuro Rachunkowe Jarosław Konik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Biuro świadczy usługi pełnej księgowości (księgi handlowe), uproszczonej (KPiR, ryczałt ewidencjonowany), obsługi kadr i płac, rozliczeń ZUS oraz zaawansowanej integracji i obsługi Krajowego Systemu e-Faktur (KSeF)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy obsługa księgowa może odbywać się zdalnie w całej Polsce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak, dzięki dedykowanej Strefie Klienta pod adresem portal.biuroadmin.online przedsiębiorcy z całej Polski mogą bezpiecznie przesyłać dokumenty, weryfikować kontrahentów w bazie GUS/KAS oraz monitorować terminy i rozliczenia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak biuro rozwiązuje kwestię integracji z KSeF i formatu FA(3)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wykorzystujemy autorski wzorzec Transactional Outbox z trójstopniową deduplikacją (blokada współbieżności Redis, hash SHA-256, klucz biznesowy), zapewniający bezbłędną wysyłkę faktur bez ryzyka przestojów czy duplikatów."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakie są dane rejestrowe i kontaktowe biura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JAROSŁAW KONIK BIURO RACHUNKOWE, NIP: 7532190370, REGON: 160059549, ul. Jana Pawła II 15, 48-370 Paczków. Telefon: +48 77 431 66 11, e-mail: kontakt@biuroadmin.online."
+          }
+        }
+      ]
     }
   ]
 }
