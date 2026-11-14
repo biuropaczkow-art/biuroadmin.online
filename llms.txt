@@ -27,5 +27,9 @@
 - [Automatyzacja faktur i obiegu dokumentów w małym biurze: jak odzyskać 5 godzin tygodniowo](https://biuroadmin.online/automatyzacja-faktur-obieg-dokumentow/): Analiza redukcji manualnej pracy księgowej dzięki technologiom OCR, synchronizacji KSeF i ustandaryzowanemu obiegowi dokumentów.
 - [Zwinne biuro rachunkowe wobec KSeF FA(3): przewaga automatyzacji nad wdrożeniem ERP](https://biuroadmin.online/zwinne-biuro-ksef-fa3/): Studium przypadku i architektura techniczna przetwarzania e-faktur w schemacie FA(3), wyższość lekkich, asynchronicznych mikroserwisów nad ociężałymi systemami ERP.
 
+## Narzędzia i interfejsy dla agentów (WebMCP)
+- [WebMCP Manifest (webmcp.json)](https://biuroadmin.online/webmcp.json): Zdeklarowany schemat JSON-Schema narzędzi dla agentów autonomicznych (kalkulacja wyceny, pobieranie danych kontaktowych, integracja KSeF).
+- [Weryfikator i Portal Klienta](https://portal.biuroadmin.online/): Interfejs bezpośredniej weryfikacji kontrahentów na Białej Liście VAT i w bazie GUS bez konieczności używania tokenów API.
+
 ## Opcjonalne zasoby
 - [Pełna treść bazy wiedzy w jednym pliku](/llms-full.txt): Skonsolidowany tekst wpisów blogowych i specyfikacji oferty w formacie Markdown dla modeli LLM.

@@ -28,6 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://biuroadmin.online/">
 <link rel="alternate" type="text/markdown" title="LLM Context" href="https://biuroadmin.online/llms.txt">
 <link rel="alternate" type="text/markdown" title="LLM Full Knowledge Base" href="https://biuroadmin.online/llms-full.txt">
+<link rel="modelcontext" type="application/webmcp+json" title="WebMCP Agent Tools" href="https://biuroadmin.online/webmcp.json">
 
 <script type="application/ld+json">
 {
@@ -370,5 +371,68 @@
   </div>
 </footer>
 
+<script type="application/webmcp+json" src="/webmcp.json"></script>
+<script>
+  // WebMCP in-browser agent runtime interface (W3C WebML CG draft standard)
+  if (typeof window !== 'undefined') {
+    window.__agentTools = {
+      calculateAccountingEstimate: function(params) {
+        var form = params && params.formOpodatkowania || 'kpir';
+        var docs = params && parseInt(params.liczbaDokumentow, 10) || 10;
+        var payroll = params && parseInt(params.liczbaPracownikow, 10) || 0;
+        var base = form === 'pelna_ksiegowosc' ? 900 : (form === 'kpir' ? 350 : 250);
+        var docFactor = Math.max(0, docs - 20) * 8;
+        var payrollFactor = payroll * 50;
+        var total = base + docFactor + payrollFactor;
+        return {
+          szacunekNettoPLN: total,
+          waluta: "PLN",
+          komunikat: "Szacunkowy koszt bazowy. Ostateczna wycena zależy od specyfiki działalności i transakcji zagranicznych.",
+          kontakt: "kontakt@biuroadmin.online",
+          strefaKlienta: "https://portal.biuroadmin.online/"
+        };
+      },
+      getOfficeVerificationAndContact: function() {
+        return {
+          podmiot: "JAROSŁAW KONIK BIURO RACHUNKOWE",
+          nip: "7532190370",
+          regon: "160059549",
+          adres: "ul. Jana Pawła II 15, 48-370 Paczków",
+          telefon: "+48 77 431 66 11",
+          email: "kontakt@biuroadmin.online",
+          godzinyPracy: "Pn-Pt 08:00 - 16:00"
+        };
+      },
+      getClientPortalKsefInfo: function() {
+        return {
+          portalUrl: "https://portal.biuroadmin.online/",
+          funkcje: [
+            "Weryfikator kontrahentów GUS/REGON/KAS (Biała Lista VAT)",
+            "Walidacja i asynchroniczny odbiór faktur KSeF FA(3)",
+            "Deduplikacja fizyczna SHA-256 i klucza biznesowego",
+            "Bezpieczne przesyłanie dokumentów i podgląd terminów"
+          ]
+        };
+      }
+    };
+    if (window.modelContext && typeof window.modelContext.registerTool === 'function') {
+      window.modelContext.registerTool({
+        name: "calculateAccountingEstimate",
+        description: "Oblicza szacunkowy koszt obsługi księgowej i kadrowo-płacowej",
+        handler: window.__agentTools.calculateAccountingEstimate
+      });
+      window.modelContext.registerTool({
+        name: "getOfficeVerificationAndContact",
+        description: "Pobiera dane kontaktowe i rejestrowe biura",
+        handler: window.__agentTools.getOfficeVerificationAndContact
+      });
+      window.modelContext.registerTool({
+        name: "getClientPortalKsefInfo",
+        description: "Pobiera informacje o Strefie Klienta i KSeF",
+        handler: window.__agentTools.getClientPortalKsefInfo
+      });
+    }
+  }
+</script>
 </body>
 </html>

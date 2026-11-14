@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Biuro Rachunkowe Jarosław Konik - Agent Tools",
+  "version": "1.0.0",
+  "description": "Natywna specyfikacja narzędzi WebMCP dla agentów autonomicznych wspierających klientów biura rachunkowego.",
+  "tools": [
+    {
+      "name": "calculateAccountingEstimate",
+      "description": "Oblicza szacunkowy miesięczny koszt obsługi księgowej i kadrowo-płacowej dla firmy w Polsce.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "formOpodatkowania": {
+            "type": "string",
+            "enum": ["ryczalt", "kpir", "pelna_ksiegowosc"],
+            "description": "Forma prawna i ewidencyjna: ryczałt ewidencjonowany, KPiR (księga przychodów i rozchodów) lub pełna księgowość (spółka z o.o., księgi handlowe)."
+          },
+          "liczbaDokumentow": {
+            "type": "integer",
+            "description": "Szacunkowa miesięczna liczba faktur sprzedażowych i kosztowych.",
+            "minimum": 0
+          },
+          "liczbaPracownikow": {
+            "type": "integer",
+            "description": "Liczba zatrudnionych osób do obsługi kadrowo-płacowej i zgłoszeń ZUS.",
+            "default": 0
+          },
+          "podatnikVat": {
+            "type": "boolean",
+            "description": "Czy podmiot jest czynnym podatnikiem VAT i wymaga składania JPK_V7.",
+            "default": true
+          }
+        },
+        "required": ["formOpodatkowania", "liczbaDokumentow"]
+      }
+    },
+    {
+      "name": "getOfficeVerificationAndContact",
+      "description": "Pobiera oficjalne dane weryfikacyjne podmiotu (NIP, REGON, adres, godziny otwarcia) oraz oficjalne kanały kontaktu.",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "getClientPortalKsefInfo",
+      "description": "Zwraca informacje o integracji KSeF FA(3), deduplikacji SHA-256 oraz sposobie dołączenia do Strefy Klienta (portal.biuroadmin.online).",
+      "parameters": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

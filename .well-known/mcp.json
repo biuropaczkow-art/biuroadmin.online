@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "biuroadmin": {
+      "name": "Biuro Rachunkowe Jarosław Konik Tools",
+      "url": "https://biuroadmin.online/webmcp.json",
+      "description": "Standardized agent tools for business accounting estimation, registration lookup and KSeF portal integrations."
+    }
+  }
+}
