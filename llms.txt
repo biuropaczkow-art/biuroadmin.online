@@ -17,13 +17,16 @@
 - **Kadry i płace:** Prowadzenie akt osobowych, naliczanie wynagrodzeń, sporządzanie list płac, obsługa umów o pracę oraz umów cywilnoprawnych (zlecenie, dzieło), ewidencja czasu pracy.
 - **Rozliczenia ZUS i e-ZUS:** Miesięczne deklaracje rozliczeniowe (DRA, RCA, RSA), obsługa zwolnień lekarskich e-ZLA, zgłaszanie i wyrejestrowywanie ubezpieczonych, audyt i korekty rozliczeń z ZUS.
 - **KSeF i automatyzacja procesów:** Konfiguracja uprawnień i połączeń z Krajowym Systemem e-Faktur, walidacja logiczna struktur FA(3), asynchroniczny odbiór i synchronizacja metadanych faktur, architektura odporna na awarie (Transactional Outbox Pattern).
+- **e-Doręczenia (UDE):** Monitorowanie skrzynek ADE w bazie BAE, bezpieczny audyt przesyłek urzędowych przed upływem 14 dni do fikcji doręczenia (art. 42 UDE), eliminacja ryzyka natychmiastowych rygorów procesowych.
 
 ## Systemy i ekosystem cyfrowy
-- [Strefa Klienta (Portal)](https://portal.biuroadmin.online/): Dedykowany, bezpieczny panel klienta do przekazywania dokumentów, podglądu składek ZUS, podatków, terminów oraz integracji KSeF.
+- [Strefa Klienta (Portal)](https://portal.biuroadmin.online/): Dedykowany, bezpieczny panel klienta do przekazywania dokumentów, podglądu składek ZUS, podatków, terminów oraz integracji KSeF i monitoringu e-Doręczeń.
 - [Strona Główna Biura](https://biuroadmin.online/): Oficjalna strona internetowa, informacje o biurze i blog ekspercki.
 - [Walidator i Weryfikacja Kontrahenta](https://portal.biuroadmin.online/): Bezpośrednia weryfikacja podmiotów w bazie REGON/GUS oraz na Białej Liście Podatników VAT (KAS).
 
 ## Baza wiedzy i artykuły eksperckie
+- [KSeF 2026 w kontraktach B2B IT: jak fakturować klientów z Polski i zagranicy w schemacie FA(3)](https://biuroadmin.online/ksef-b2b-it-programista-fa3/): Kompleksowy przewodnik dla inżynierów oprogramowania i firm technologicznych: fakturowanie kontrahentów z PL, UE i USA, samofakturowanie (self-billing), przeliczanie walut EUR/USD według kursów NBP, brak załączników binarnych w FA(3) i odporny asynchroniczny outbox.
+- [e-Doręczenia dla spółek i JDG: 14 dni do fikcji doręczenia i jak uniknąć pułapek urzędowych](https://biuroadmin.online/edoreczenia-dla-firm-fikcja-doreczenia/): Praktyczny przewodnik po Ustawie o doręczeniach elektronicznych (UDE): adresy ADE w bazie BAE, bezwzględny 14-dniowy termin z art. 42 UDE skutkujący fikcją doręczenia, zakaz automatycznego pobierania pism (UPD) przez boty oraz architektura bezpiecznego monitoringu skrzynek w Portalu BiuroAdmin.
 - [Automatyzacja faktur i obiegu dokumentów w małym biurze: jak odzyskać 5 godzin tygodniowo](https://biuroadmin.online/automatyzacja-faktur-obieg-dokumentow/): Analiza redukcji manualnej pracy księgowej dzięki technologiom OCR, synchronizacji KSeF i ustandaryzowanemu obiegowi dokumentów.
 - [Zwinne biuro rachunkowe wobec KSeF FA(3): przewaga automatyzacji nad wdrożeniem ERP](https://biuroadmin.online/zwinne-biuro-ksef-fa3/): Studium przypadku i architektura techniczna przetwarzania e-faktur w schemacie FA(3), wyższość lekkich, asynchronicznych mikroserwisów nad ociężałymi systemami ERP.
 

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KSeF 2026 w kontraktach B2B IT: jak fakturować klientów z Polski i zagranicy w schemacie FA(3) — Biuro Rachunkowe Jarosław Konik</title>
+<meta name="description" content="Praktyczny przewodnik po KSeF i schemacie FA(3) dla programistów oraz firm IT: fakturowanie klientów z Polski i zagranicy, samofakturowanie (self-billing), waluty EUR/USD, kursy NBP, załączniki techniczne i asynchroniczny outbox.">
+<meta name="author" content="Biuro Rachunkowe Jarosław Konik">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://biuroadmin.online/ksef-b2b-it-programista-fa3/">
+<link rel="alternate" hreflang="pl" href="https://biuroadmin.online/ksef-b2b-it-programista-fa3/">
+<link rel="alternate" hreflang="x-default" href="https://biuroadmin.online/ksef-b2b-it-programista-fa3/">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Biuro Rachunkowe Jarosław Konik">
+<meta property="og:title" content="KSeF 2026 w kontraktach B2B IT: jak fakturować klientów z Polski i zagranicy w schemacie FA(3)">
+<meta property="og:description" content="Praktyczny przewodnik po KSeF FA(3) dla branży IT: fakturowanie kontrahentów z PL, UE i USA, self-billing, przeliczanie walut EUR/USD, załączniki techniczne oraz asynchroniczny outbox.">
+<meta property="og:url" content="https://biuroadmin.online/ksef-b2b-it-programista-fa3/">
+<meta property="og:image" content="https://biuroadmin.online/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="KSeF 2026 w B2B IT — Schemat FA(3) i fakturowanie w branży technologicznej">
+<meta property="article:published_time" content="2026-11-19T10:00:00+01:00">
+<meta property="article:modified_time" content="2026-11-19T10:00:00+01:00">
+<meta property="article:author" content="Jarosław Konik">
+<meta property="article:section" content="KSeF & B2B IT">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KSeF 2026 w kontraktach B2B IT: schemat FA(3) bez tajemnic">
+<meta name="twitter:description" content="Fakturowanie klientów z Polski i zagranicy, self-billing, EUR/USD i załączniki w KSeF FA(3). Poradnik dla software developerów.">
+<meta name="twitter:image" content="https://biuroadmin.online/og.png">
+
+<link rel="icon" type="image/svg+xml" href="https://biuroadmin.online/favicon.svg">
+<link rel="apple-touch-icon" href="https://biuroadmin.online/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://biuroadmin.online/ksef-b2b-it-programista-fa3/"
+  },
+  "headline": "KSeF 2026 w kontraktach B2B IT: jak fakturować klientów z Polski i zagranicy w schemacie FA(3)",
+  "description": "Kompleksowy poradnik dla inżynierów oprogramowania, freelancerów i software house'ów: fakturowanie w schemacie logicznym FA(3), samofakturowanie, waluty EUR/USD, załączniki techniczne i odporna architektura outbox.",
+  "image": "https://biuroadmin.online/og.png",
+  "datePublished": "2026-11-19T10:00:00+01:00",
+  "dateModified": "2026-11-19T10:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Jarosław Konik",
+    "jobTitle": "Właściciel / Główny Księgowy"
+  },
+  "publisher": {
+    "@type": "AccountingService",
+    "name": "Biuro Rachunkowe Jarosław Konik",
+    "url": "https://biuroadmin.online/",
+    "taxID": "7532190370",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://biuroadmin.online/og.png"
+    }
+  }
+}
+</script>
+
+<style>
+  :root{--ink:#16202b;--ink-soft:#3c4c5c;--muted:#5a6b7c;--line:#e3e9ef;--accent:#1d6a5f;--accent-2:#b7791f;--bg:#fbfcfd;--card:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.72 Georgia,serif}
+  .wrap{max-width:800px;margin:0 auto;padding:40px 24px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .back{font:600 14px/1 -apple-system,sans-serif;margin-bottom:24px;display:inline-block}
+  h1{font-size:36px;line-height:1.2;margin:0 0 16px}
+  .meta{font:14px/1.5 -apple-system,sans-serif;color:var(--muted);margin-bottom:32px;border-bottom:1px solid var(--line);padding-bottom:16px}
+  p{margin:0 0 20px}
+  h2{font-size:24px;margin:36px 0 16px}
+  h3{font-size:20px;margin:28px 0 12px}
+  ul,ol{padding-left:24px;margin:0 0 24px}
+  li{margin-bottom:10px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:15px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#0f172a}
+  pre{background:#1e293b;color:#f8fafc;padding:18px;border-radius:8px;overflow-x:auto;font-size:14px;line-height:1.55;margin:24px 0}
+  pre code{background:transparent;color:inherit;padding:0}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font:15px/1.6 -apple-system,sans-serif}
+  th,td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+  th{background:#f8fafc;font-weight:600;color:var(--ink)}
+  .note{background:#fffaf0;border:1px solid #f0e0c0;border-radius:8px;padding:18px;margin:32px 0;font:15px/1.6 -apple-system,sans-serif}
+  .portal-card{background:#edf7f5;border:1px solid #b8e2dc;padding:24px;border-radius:10px;margin:36px 0;}
+  .btn{display:inline-block;background:#1d6a5f;color:#fff;padding:12px 20px;border-radius:6px;font-family:-apple-system,sans-serif;font-size:15px;font-weight:600;text-decoration:none}
+  .btn:hover{background:#17564d;color:#fff;text-decoration:none}
+  footer{border-top:1px solid var(--line);margin-top:48px;padding-top:24px;font:14px/1.6 -apple-system,sans-serif;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="/">← Wróć do strony głównej</a>
+  <h1>KSeF 2026 w kontraktach B2B IT: jak fakturować klientów z Polski i zagranicy w schemacie FA(3)</h1>
+  <div class="meta">Opublikowano: 19 listopada 2026 · KSeF & B2B IT · 11 min czytania · Autor: Jarosław Konik</div>
+
+  <p>Dla inżynierów oprogramowania, architektów chmurowych i specjalistów DevOps prowadzących jednoosobową działalność gospodarczą (JDG) lub spółki technologiczne, rok 2026 przynosi największą zmianę operacyjną w historii polskiego systemu podatkowego. Obowiązkowy Krajowy System e-Faktur w strukturze <b>FA(3)</b> kładzie definitywny kres epoce „faktur w PDF-ie wysyłanych mailem w ostatni dzień miesiąca”.</p>
+
+  <p>W schemacie FA(3) faktura przestaje być dokumentem graficznym — staje się ustrukturyzowanym rekordem XML walidowanym pod rygorem odrzucenia przez rządowe bramki Ministerstwa Finansów. W kontraktach technologicznych rodzi to natychmiast szereg krytycznych pytań: jak rozliczać klientów z USA i Unii Europejskiej? Co z popularnym samofakturowaniem (self-billing)? Jak przekazać timesheet z Jiry, skoro XML nie przyjmuje załączników binarnych? I dlaczego programistyczny skrypt fakturowy bez asynchronicznego bufora może sparaliżować firmowe finanse?</p>
+
+  <h2>1. Klient z Polski czy zagranicy: kto trafia do KSeF, a kto poza system?</h2>
+  <p>Kluczową kwestią przy wystawianiu faktury w 2026 roku jest status prawny i rezydencja podatkowa Twojego klienta. Reguły gry różnią się diametralnie w zależności od tego, czy kontrakt realizujesz dla polskiego software house'u, korporacji z Niemiec czy startupu z Doliny Krzemowej.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Typ kontrahenta</th>
+        <th>Miejsce świadczenia / VAT</th>
+        <th>Obowiązek KSeF</th>
+        <th>Sposób doręczenia dokumentu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Polski klient B2B (NIP PL)</b></td>
+        <td>Krajowa stawka VAT (najczęściej 23%)</td>
+        <td><b>BEZWZGLĘDNY</b></td>
+        <td>Faktura ustrukturyzowana trafia do KSeF. Moment doręczenia = nadanie numeru KSeF i pobranie UPO.</td>
+      </tr>
+      <tr>
+        <td><b>Klient z UE (B2B VAT-UE)</b></td>
+        <td>Odwrotne obciążenie (art. 28b ustawy o VAT, stawka NP / reverse charge)</td>
+        <td><b>Faktura w KSeF z kodem kraju</b></td>
+        <td>Faktura rejestrowana w KSeF (brak polskiego NIP, podany NIP-UE), a klientowi zagranicznemu przekazuje się wizualizację PDF z kodem QR KSeF lub uzgodniony format.</td>
+      </tr>
+      <tr>
+        <td><b>Klient spoza UE (np. USA, UK)</b></td>
+        <td>Eksport usług poza UE (art. 28b ustawy o VAT, stawka NP)</td>
+        <td><b>Faktura w KSeF lub procedura poza KSeF</b></td>
+        <td>Węzeł <code>Podmiot2</code> z oznaczeniem <code>BrakID</code> lub numerem identyfikacji podatkowej (TIN/EIN). Klient otrzymuje plik PDF/elektroniczny z kodem weryfikacyjnym QR.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Dla kontrahentów zagranicznych struktura FA(3) przewiduje specjalne oznaczenia w węźle nabywcy: kod kraju (dwuliterowy prefiks ISO), pole identyfikatora podatkowego oraz brak wymogu podawania polskiego numeru NIP. Należy pamiętać, że zagraniczny klient nie ma loginu do polskiego KSeF — dlatego zgodnie z przepisami przedsiębiorca ma obowiązek udostępnić mu fakturę w sposób z nim uzgodniony (np. w postaci wygenerowanego pliku PDF), opatrzoną specjalnym <b>kodem weryfikacyjnym QR</b> wygenerowanym na podstawie danych z KSeF.</p>
+
+  <h2>2. Samofakturowanie (self-billing) w IT: pułapka automatycznych tokenów</h2>
+  <p>W branży IT powszechnym standardem jest <i>self-billing</i> (samofakturowanie, uregulowane w art. 106d ustawy o VAT). Polski lub zagraniczny software house na koniec okresu rozliczeniowego sam generuje fakturę w imieniu programisty na podstawie zatwierdzonych godzin lub kamieni milowych w systemie zarządzania projektami.</p>
+
+  <p>W erze KSeF FA(3) procedura ta wymaga spełnienia rygorystycznych wymogów formalnych i technicznych:</p>
+  <ul>
+    <li><b>Formalne uprawnienie w systemie KSeF:</b> Programista musi nadać kontrahentowi w rządowym portalu KSeF uprawnienie do wystawiania faktur w jego imieniu (wymóg posiadania aktywnego tokenu lub certyfikatu z odpowiednią rolą).</li>
+    <li><b>Oznaczenie w strukturze FA(3):</b> Faktura wystawiona w ramach self-billingu musi mieć ustawioną flagę w polu <code>P_17 = 1</code> (lub <code>true</code>), jednoznacznie wskazującą procedurę samofakturowania.</li>
+    <li><b>Ryzyko braku wglądu i błędnych stawek ryczałtu:</b> Jeżeli agencja wystawia fakturę w Twoim imieniu, to Ty ponosisz pełną odpowiedzialność podatkową przed urzędem skarbowym za poprawność wykazanych kwot i stawek ryczałtu (np. 12% dla programistów vs 8,5% dla usług konfiguracji systemów i wsparcia technicznego).</li>
+  </ul>
+
+  <div class="note">
+    <b>Uwaga eksperta:</b> W Biurze Rachunkowym Jarosław Konik konfigurujemy dla klientów automatyczną synchronizację faktur z KSeF w Strefie Klienta (<a href="https://portal.biuroadmin.online/">portal.biuroadmin.online</a>). Każda faktura wystawiona przez Twojego kontrahenta w ramach samofakturowania natychmiast pojawia się w Twoim panelu z weryfikacją stawki ryczałtu i powiadomieniem e-mail.
+  </div>
+
+  <h2>3. Faktury w walutach obcych (EUR, USD, GBP): NBP i węzły FA(3)</h2>
+  <p>Wielu programistów w Polsce rozlicza się w walutach obcych z klientami z USA, Wielkiej Brytanii czy strefy euro. W schemacie FA(3) faktura walutowa musi spełniać ścisłe wymogi art. 31a oraz art. 106e ust. 11 ustawy o VAT:</p>
+
+  <ol>
+    <li><b>Kurs przeliczeniowy NBP:</b> Kwoty wyrażone w walucie obcej przelicza się na złote według kursu średniego danej waluty obcej ogłoszonego przez Narodowy Bank Polski na ostatni dzień roboczy poprzedzający dzień powstania obowiązku podatkowego (zazwyczaj dzień wykonania usługi lub otrzymania zaliczki).</li>
+    <li><b>Kwota VAT obowiązkowo w PLN:</b> Jeżeli transakcja podlega opodatkowaniu podatkiem VAT w Polsce (np. klient krajowy płacący w EUR), kwota podatku VAT <b>musi być bezwzględnie wykazana w polskich złotych (PLN)</b>, bez względu na to, w jakiej walucie określono kwoty netto i brutto.</li>
+    <li><b>Węzły XML w schemacie FA(3):</b> W nagłówku faktury definiowany jest element <code>KodWaluty</code> (np. <code>EUR</code>, <code>USD</code>), a w podsumowaniu i pozycjach faktury podaje się zarówno wartości w walucie kontraktowej, jak i przeliczone kwoty podatkowe wraz ze wskazaniem tabeli kursowej NBP (węzły <code>KursWaluty</code> i <code>Waluta</code>).</li>
+  </ol>
+
+  <h2>4. Problem załączników technicznych: gdzie podziały się raporty z Jiry?</h2>
+  <p>Dotychczasowa praktyka wielu kontraktów IT polegała na dołączaniu do pliku PDF kilkunastostronicowego zestawienia sprintu, tabeli z Jira Worklogs czy listy pull requestów zaakceptowanych w danym miesiącu. Dla prawników klienta stanowiło to dowód wykonania prac i podstawę do wypłaty wynagrodzenia.</p>
+
+  <p><b>W strukturze logicznej KSeF FA(3) nie ma możliwości załączenia żadnego pliku binarnego (ani PDF, ani PNG, ani ZIP)!</b> Rządowa bramka przyjmuje wyłącznie czysty plik XML o ściśle określonym rozmiarze (maksymalnie kilka megabajtów tekstu).</p>
+
+  <p>Jak inżynierowie oprogramowania powinni rozwiązać ten problem w 2026 roku?</p>
+  <ul>
+    <li><b>Zastosowanie węzła <code>DodatkowyOpis</code> w FA(3):</b> Do faktury XML można dodać pola tekstowe z kluczem i wartością (np. <code>Sprint_ID</code>, <code>Repo_Commit_Hash</code>, <code>Jira_Epic</code>).</li>
+    <li><b>Kryptograficzny link referencyjny i hash SHA-256:</b> W opisie faktury umieszcza się adres URL do bezpiecznego repozytorium lub audytowanego panelu klienta wraz z sumą kontrolną SHA-256 wygenerowanego protokołu odbioru (Acceptance Report). Zapewnia to niezaprzeczalność dokumentacji technicznej w razie kontroli skarbowej.</li>
+    <li><b>Odrębny elektroniczny obieg protokołów odbioru:</b> Protokół odbioru prac (Timesheet / Milestone Sign-off) pozostaje autonomicznym dokumentem kontraktowym, podpisanym elektronicznie poza KSeF, a w fakturze ustrukturyzowanej występuje jedynie numer referencyjny tego protokołu.</li>
+  </ul>
+
+  <h2>5. Architektura integracji: dlaczego Transactional Outbox ratuje biznes?</h2>
+  <p>Jeżeli Twój software house lub wewnętrzny skrypt wystawia faktury poprzez bezpośrednie, synchroniczne zapytanie HTTP POST do API KSeF w momencie kliknięcia przycisku przez użytkownika, prosisz się o poważną awarię produkcyjną.</p>
+
+  <p>Bramki Ministerstwa Finansów podczas szczytów rozliczeniowych (zwłaszcza 20-25 dnia każdego miesiąca) podlegają okresowym opóźnieniom, kolejkowaniu i zwrotom błędów HTTP 500, 502 lub 504 Gateway Timeout. W modelu synchronicznym aplikacja nie wie, czy faktura została przyjęta do przetworzenia, czy została odrzucona. Wysłanie ponownego żądania może skutkować wystawieniem duplikatu lub błędem krytycznym.</p>
+
+  <pre><code>// Prawidłowy wzorzec: Transactional Outbox + Asynchroniczny Worker
+1. Zapis faktury i rekordu w tabeli outbox_invoices w lokalnej bazie PostgreSQL w ramach jednej transakcji ACID.
+2. Zablokowanie klucza idempotencji w Redis (klucz: NIP_Sprzedawcy:Numer_Faktury:Hash_SHA256).
+3. Publikacja zdarzenia na kolejce RabbitMQ / Celery.
+4. Asynchroniczny worker wysyła payload FA(3) do bramki KSeF z obsługą ponowień (exponential backoff).
+5. Oczekiwanie na przetworzenie sesji, zapis nadanego numeru KSeF oraz pobranie Urzędowego Poświadczenia Odbioru (UPO).</code></pre>
+
+  <p>W architekturze Biura Rachunkowego Jarosław Konik ten wzorzec został zaimplementowany jako rdzeń integracyjny. Żadna faktura nie ginie w próżni, a przedsiębiorca ma 100% gwarancji ciągłości operacyjnej niezależnie od obciążenia rządowych serwerów.</p>
+
+  <h2>6. Dlaczego branża IT wybiera Biuro Rachunkowe Jarosław Konik?</h2>
+  <p>Księgowość dla programistów i firm IT nie może opierać się na szablonach sprzed dwóch dekad. Wymaga zrozumienia architektury chmurowej, specyfiki transakcji międzynarodowych i rygorów KSeF.</p>
+
+  <ul>
+    <li><b>Specjalizacja w rozliczeniach IT:</b> Prawidłowe kwalifikowanie kodów PKWiU dla stawki ryczałtu (12% dla oprogramowania, 8,5% dla analizy i wsparcia infrastruktury), rozliczenia podatku liniowego, skali oraz ulgi IP Box (5%).</li>
+    <li><b>Nowoczesna Strefa Klienta (<a href="https://portal.biuroadmin.online/">portal.biuroadmin.online</a>):</b> Bezpieczny panel webowy z wbudowanym walidatorem schematów FA(3), automatyczną weryfikacją kontrahentów na Białej Liście VAT i w GUS oraz podglądem synchronizacji faktur w czasie rzeczywistym.</li>
+    <li><b>Doświadczenie od 2003 roku:</b> Ponad 20 lat nieprzerwanej praktyki zawodowej gwarantuje spokój podczas kontroli skarbowych i pełną odpowiedzialność za bezpieczeństwo rozliczeń.</li>
+  </ul>
+
+  <div class="portal-card">
+    <h3 style="margin:0 0 10px;font-size:20px;color:#1d6a5f;font-family:-apple-system,sans-serif;">Wdrożyłeś KSeF w swojej działalności IT? Zadbaj o bezpieczną księgowość</h3>
+    <p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#3c4c5c;">Skorzystaj z wiedzy księgowej połączonej z inżynierskim podejściem do automatyzacji procesów. W Strefie Klienta Biura Rachunkowego Jarosław Konik zyskujesz pełną kontrolę nad fakturami krajowymi i zagranicznymi w standardzie FA(3).</p>
+    <a class="btn" href="https://portal.biuroadmin.online/">Przejdź do Strefy Klienta na portal.biuroadmin.online →</a>
+  </div>
+
+  <footer>
+    <b>Biuro Rachunkowe Jarosław Konik</b> · NIP 7532190370 · Paczków<br>
+    Strona główna: <a href="https://biuroadmin.online/">biuroadmin.online</a> · Strefa Klienta: <a href="https://portal.biuroadmin.online/">portal.biuroadmin.online</a>
+  </footer>
+</div>
+</body>
+</html>
