@@ -294,6 +294,10 @@
   .contact-details dl{margin:0}.contact-details dt{font:700 12px/1.2 -apple-system,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:20px}
   .contact-details dt:first-child{margin-top:0}.contact-details dd{margin:6px 0 0;font-size:16px;line-height:1.55}
   .trust-line{font:14px/1.55 -apple-system,sans-serif;color:var(--muted);margin-top:18px}
+  .clarity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:25px 0}
+  .clarity-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
+  .clarity-card h3{font-size:19px;margin:0 0 8px}.clarity-card p{font:15.5px/1.6 -apple-system,sans-serif;color:var(--ink-soft);margin:0}
+  .faq-list{border-top:1px solid var(--line);margin-top:24px}.faq-list details{border-bottom:1px solid var(--line);padding:17px 0}.faq-list summary{cursor:pointer;font:700 17px/1.45 -apple-system,sans-serif}.faq-list p{font:15.5px/1.62 -apple-system,sans-serif;color:var(--ink-soft);padding:10px 30px 0 0;margin:0}
 
   footer{border-top:3px solid var(--ink);margin-top:56px;padding:28px 0 56px;font:15px/1.65 -apple-system,sans-serif;color:var(--muted)}
   footer b{color:var(--ink)}
@@ -310,7 +314,7 @@
     header.site{padding-top:42px}
     .dek{font-size:18px}
     .cta .btn{width:100%;justify-content:center}
-    .contact-shell{grid-template-columns:1fr}.contact-card,.contact-details{padding:23px 20px}
+    .contact-shell,.clarity-grid{grid-template-columns:1fr}.contact-card,.contact-details{padding:23px 20px}
   }
 </style>
 </head>
@@ -320,8 +324,8 @@
   <div class="wrap">
     <a class="home-link" href="#start" aria-label="Biuro Rachunkowe Jarosław Konik — początek strony">Biuro Rachunkowe Jarosław Konik</a>
     <nav class="main-nav" aria-label="Główna nawigacja">
-      <a href="#uslugi">Usługi</a>
-      <a href="#dla-kogo">Dla kogo</a>
+      <a href="/oferta/">Oferta</a>
+      <a href="/zmiana-biura/">Zmiana biura</a>
       <a href="#wspolpraca">Współpraca</a>
       <a href="#blog">Wiedza</a>
       <a href="/kontakt/">Kontakt</a>
@@ -434,6 +438,26 @@
   </div>
   </section>
 
+  <section id="jasne-zasady">
+    <h2>Jasne zasady przed pierwszą rozmową</h2>
+    <div class="clarity-grid">
+      <article class="clarity-card"><h3>Zakres bez domysłów</h3><p>Na stronie <a href="/oferta/">Oferta i zakres obsługi</a> wyjaśniamy, co może obejmować księgowość, kadry, ZUS i KSeF oraz jak dzielimy odpowiedzialność.</p></article>
+      <article class="clarity-card"><h3>Cena zależna od pracy</h3><p>Wycena uwzględnia formę księgowości, liczbę i rodzaj dokumentów, zatrudnienie, VAT, transakcje zagraniczne i zdarzenia nietypowe.</p></article>
+      <article class="clarity-card"><h3>Spokojna zmiana biura</h3><p>Opisaliśmy <a href="/zmiana-biura/">proces przejęcia księgowości</a>, potrzebne dokumenty i sposób zachowania ciągłości rozliczeń.</p></article>
+      <article class="clarity-card"><h3>Odpowiedzialność właściciela</h3><p>Za organizację obsługi odpowiada Jarosław Konik. Klient kontaktuje się z konkretnym biurem, a nie anonimową infolinią lub platformą sprzedażową.</p></article>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Najczęstsze pytania przed wyborem biura</h2>
+    <div class="faq-list">
+      <details><summary>Czy obsługujecie firmy spoza Paczkowa?</summary><p>Tak. Współpraca może odbywać się lokalnie lub zdalnie dla firm z całej Polski, zależnie od zakresu i rodzaju dokumentów.</p></details>
+      <details><summary>Czy można zmienić biuro w trakcie roku?</summary><p>Tak, jeśli dokumentacja pozwala zachować ciągłość rozliczeń. Przed potwierdzeniem terminu sprawdzamy stan ewidencji, najbliższe obowiązki i zasady przekazania danych.</p></details>
+      <details><summary>Dlaczego nie ma jednej ceny dla wszystkich?</summary><p>Ta sama liczba dokumentów może oznaczać bardzo różny nakład pracy. Uczciwa wycena wymaga poznania formy księgowości, zatrudnienia, VAT, transakcji zagranicznych i dodatkowych obowiązków.</p></details>
+      <details><summary>Jak bezpiecznie przekazać dokumenty?</summary><p>Poufnych dokumentów nie przesyłamy w pierwszym zwykłym e-mailu. Po ustaleniu współpracy klient otrzymuje uzgodniony kanał i dostęp do Strefy Klienta.</p></details>
+    </div>
+  </section>
+
   <section id="kontakt">
     <h2>Kontakt</h2>
     <p class="dek">Opowiedz krótko, czym zajmuje się Twoja firma i jak dziś prowadzisz rozliczenia. W pierwszej rozmowie ustalimy, czy i w jakim zakresie możemy Ci pomóc.</p>
@@ -469,7 +493,8 @@
     NIP <span class="nip">7532190370</span> · REGON <span class="nip">160059549</span> · tel. +48 77 431 66 11<br>
     Księgowość, kadry, płace i rozliczenia ZUS
     <nav>
-      <a href="#uslugi">Usługi</a>
+      <a href="/oferta/">Oferta</a>
+      <a href="/zmiana-biura/">Zmiana biura</a>
       <a href="#wspolpraca">Współpraca</a>
       <a href="#blog">Wiedza</a>
       <a href="/kontakt/">Kontakt</a>
