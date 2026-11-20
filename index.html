@@ -205,9 +205,9 @@
     --accent:#1d6a5f; --accent-2:#b7791f; --bg:#fbfcfd; --card:#fff;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;max-width:100%;overflow-x:hidden}
   body{
-    margin:0;background:var(--bg);color:var(--ink);
+    margin:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--ink);
     font:18px/1.72 Georgia,'Times New Roman',serif;
     -webkit-font-smoothing:antialiased;
   }
@@ -216,7 +216,15 @@
   a{color:var(--accent);text-underline-offset:3px}
   a:hover{color:var(--accent-2)}
 
-  header.site{border-bottom:3px solid var(--ink);padding:44px 0 30px}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(251,252,253,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+  .topbar .wrap{max-width:1120px;display:flex;align-items:center;gap:24px;min-height:70px}
+  .home-link{color:var(--ink);font:700 16px/1.2 -apple-system,Segoe UI,sans-serif;text-decoration:none;white-space:nowrap}
+  .main-nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+  .main-nav a{color:var(--ink-soft);font:600 14px/1 -apple-system,Segoe UI,sans-serif;padding:11px 10px;border-radius:7px;text-decoration:none;white-space:nowrap}
+  .main-nav a:hover,.main-nav a:focus-visible{background:#eef5f3;color:var(--accent)}
+  .main-nav .portal-link{margin-left:6px;background:var(--accent);color:#fff;padding-inline:14px}
+  .main-nav .portal-link:hover,.main-nav .portal-link:focus-visible{background:#17564d;color:#fff}
+  header.site{border-bottom:3px solid var(--ink);padding:54px 0 38px}
   .brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:22px}
   .brand strong{font-size:20px;font-weight:700;letter-spacing:-.01em}
   .brand span{font-size:13px;color:var(--muted)}
@@ -240,6 +248,7 @@
 
   main{padding:44px 0 20px}
   h2{font-size:27px;line-height:1.26;margin:52px 0 16px;letter-spacing:-.012em}
+  section{scroll-margin-top:92px}
   h2:first-child{margin-top:0}
   p{margin:0 0 20px}
   .lede{font-size:20px;line-height:1.62;border-left:3px solid var(--accent);padding-left:20px;margin:0 0 32px}
@@ -270,6 +279,22 @@
   }
   .note b{color:var(--ink)}
 
+  .process{counter-reset:step;display:grid;gap:0;margin:24px 0;padding:0}
+  .process li{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);list-style:none}
+  .process li::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eef5f3;color:var(--accent);font:700 14px/1 -apple-system,sans-serif}
+  .process strong{display:block;margin-bottom:3px}
+  .process span{color:var(--ink-soft);font-size:16px;line-height:1.55}
+  .contact-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:18px;margin:28px 0 12px}
+  .contact-card{background:var(--ink);color:#fff;border-radius:12px;padding:30px}
+  .contact-card h3{font-size:23px;margin:0 0 10px}.contact-card p{color:#d9e2ea;font-size:16px;line-height:1.6}
+  .contact-actions{display:grid;gap:10px;margin-top:24px}
+  .contact-actions a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border:1px solid rgba(255,255,255,.22);border-radius:8px;color:#fff;text-decoration:none;font:600 15px/1.35 -apple-system,sans-serif}
+  .contact-actions a:hover,.contact-actions a:focus-visible{background:#fff;color:var(--ink)}
+  .contact-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
+  .contact-details dl{margin:0}.contact-details dt{font:700 12px/1.2 -apple-system,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:20px}
+  .contact-details dt:first-child{margin-top:0}.contact-details dd{margin:6px 0 0;font-size:16px;line-height:1.55}
+  .trust-line{font:14px/1.55 -apple-system,sans-serif;color:var(--muted);margin-top:18px}
+
   footer{border-top:3px solid var(--ink);margin-top:56px;padding:28px 0 56px;font:15px/1.65 -apple-system,sans-serif;color:var(--muted)}
   footer b{color:var(--ink)}
   footer nav{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 20px}
@@ -277,14 +302,35 @@
 
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   @media (max-width:600px){
+    .topbar{position:relative}
+    .topbar .wrap{display:block;min-height:0;padding:14px 18px 18px}
+    .home-link{display:block;margin-bottom:12px}
+    .main-nav{width:100%;max-width:100%;overflow-x:auto;margin:0;padding:0 0 5px;scrollbar-width:thin;overscroll-behavior-inline:contain}
+    .main-nav a{background:#f1f4f6;padding:11px 13px}.main-nav .portal-link{margin-left:2px}
+    header.site{padding-top:42px}
     .dek{font-size:18px}
     .cta .btn{width:100%;justify-content:center}
+    .contact-shell{grid-template-columns:1fr}.contact-card,.contact-details{padding:23px 20px}
   }
 </style>
 </head>
 <body>
 
-<header class="site">
+<div class="topbar sans">
+  <div class="wrap">
+    <a class="home-link" href="#start" aria-label="Biuro Rachunkowe Jarosław Konik — początek strony">Biuro Rachunkowe Jarosław Konik</a>
+    <nav class="main-nav" aria-label="Główna nawigacja">
+      <a href="#uslugi">Usługi</a>
+      <a href="#dla-kogo">Dla kogo</a>
+      <a href="#wspolpraca">Współpraca</a>
+      <a href="#blog">Wiedza</a>
+      <a href="/kontakt/">Kontakt</a>
+      <a class="portal-link" href="https://portal.biuroadmin.online/">Strefa Klienta</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site" id="start">
   <div class="wrap">
     <div class="brand sans">
       <strong>Biuro Rachunkowe Jarosław Konik</strong>
@@ -294,8 +340,8 @@
     <h1>Rachunkowość prowadzona tak, żebyś nie musiał się nią zajmować.</h1>
     <p class="dek">Prowadzimy księgowość, kadry i płace oraz rozliczenia ZUS dla firm w całej Polsce. Dokumenty i sprawy Twojego biura masz w jednym miejscu — w Strefie Klienta.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="https://portal.biuroadmin.online/">Wejdź do Strefy Klienta</a>
-      <a class="btn btn-ghost" href="#blog">Czytaj blog biura</a>
+      <a class="btn btn-primary" href="/kontakt/">Porozmawiajmy o księgowości</a>
+      <a class="btn btn-ghost" href="#uslugi">Zobacz zakres obsługi</a>
     </div>
   </div>
 </header>
@@ -304,6 +350,7 @@
 
   <p class="lede">Nie sprzedajemy oprogramowania. Prowadzimy księgowość i bierzemy odpowiedzialność za liczby, terminy i dokumenty — a to, co techniczne, trzymamy po swojej stronie.</p>
 
+  <section id="uslugi">
   <h2>W czym pomagamy</h2>
   <div class="grid">
     <div class="card">
@@ -324,10 +371,32 @@
     <div class="card">
       <span class="num">04</span>
       <h3>KSeF</h3>
-      <p>Konfiguracja połączenia, uprawnień i synchronizacji metadanych faktur. Struktury logiczne traktujemy jako walidator, nie jako „jedną typ faktury”.</p>
+      <p>Konfiguracja połączenia, uprawnień i synchronizacji metadanych faktur. Struktury logiczne traktujemy jako walidator, nie jako „jeden typ faktury”.</p>
     </div>
   </div>
+  </section>
 
+  <section id="dla-kogo">
+    <h2>Dla firm, które chcą mieć porządek</h2>
+    <p>Obsługujemy przedsiębiorców lokalnie w Paczkowie i zdalnie w całej Polsce. Najlepiej współpracuje nam się z firmami, które oczekują jasnych zasad, terminowej komunikacji i bezpiecznego obiegu dokumentów.</p>
+    <div class="grid">
+      <div class="card"><h3>Jednoosobowe działalności</h3><p>KPiR, ryczałt, VAT, ZUS i bieżące wyjaśnienia bez księgowego żargonu.</p></div>
+      <div class="card"><h3>Spółki i zespoły</h3><p>Księgi rachunkowe, kadry i płace, rozliczenia wspólników oraz uporządkowane procesy.</p></div>
+      <div class="card"><h3>Firmy pracujące zdalnie</h3><p>Cyfrowe przekazywanie dokumentów i dostęp do najważniejszych spraw w Strefie Klienta.</p></div>
+    </div>
+  </section>
+
+  <section id="wspolpraca">
+    <h2>Jak zaczynamy współpracę</h2>
+    <ol class="process">
+      <li><div><strong>Krótka rozmowa</strong><span>Poznajemy formę działalności, skalę dokumentów, zatrudnienie i najważniejsze potrzeby.</span></div></li>
+      <li><div><strong>Zakres i zasady</strong><span>Ustalamy odpowiedzialności, terminy przekazywania dokumentów i sposób komunikacji.</span></div></li>
+      <li><div><strong>Bezpieczne wdrożenie</strong><span>Porządkujemy upoważnienia, dane otwarcia i dostęp do Strefy Klienta.</span></div></li>
+      <li><div><strong>Stała obsługa</strong><span>Prowadzimy rozliczenia, pilnujemy terminów i informujemy, gdy potrzebna jest Twoja decyzja.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="strefa-klienta">
   <h2>Co znajdziesz w Strefie Klienta</h2>
   <ul class="plain">
     <li><b>Dokumenty</b> — pliki i wiadomości, z pełną historią wersji w archiwum firmy.</li>
@@ -335,9 +404,11 @@
     <li><b>KSeF</b> — osobna zakładka do konfiguracji połączenia i synchronizacji faktur.</li>
     <li><b>Pulpit</b> — skrót danych firmy i najbliższy zapisany termin.</li>
   </ul>
-  <p style="margin-top:24px"><a href="https://portal.biuroadmin.online/">Przejdź do Strefy Klienta →</a></p>
+  <p style="margin-top:24px"><a class="btn btn-ghost" href="https://portal.biuroadmin.online/">Otwórz Strefę Klienta</a></p>
+  </section>
 
-  <h2 id="blog">Blog</h2>
+  <section id="blog">
+  <h2>Wiedza dla przedsiębiorców</h2>
   <p>To, co dzieje się w branży — opisane konkretnie, z liczbami i bez ogólników. Część wpisów powstaje jako dokumentacja naszych własnych wdrożeń.</p>
   <ul class="posts">
     <li>
@@ -361,6 +432,33 @@
   <div class="note">
     <b>Nota metodologiczna.</b> Terminy i limity KSeF zmieniają się — przed podjęciem decyzji weryfikuj aktualny stan na stronie <a href="https://ksef.podatki.gov.pl/">ksef.podatki.gov.pl</a>. Portal zawiera wartości zapisane do organizacji pracy i nie zastępuje danych źródłowych.
   </div>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p class="dek">Opowiedz krótko, czym zajmuje się Twoja firma i jak dziś prowadzisz rozliczenia. W pierwszej rozmowie ustalimy, czy i w jakim zakresie możemy Ci pomóc.</p>
+    <div class="contact-shell">
+      <div class="contact-card sans">
+        <p class="kicker" style="color:#8fd0c6">Bezpośredni kontakt</p>
+        <h3>Porozmawiaj z biurem</h3>
+        <p>W sprawie nowej obsługi najwygodniej zadzwonić lub napisać e-mail. Nie przesyłaj dokumentów księgowych zwykłą pocztą elektroniczną — klienci przekazują je przez bezpieczną Strefę Klienta.</p>
+        <div class="contact-actions">
+          <a href="tel:+48774316611"><span>Zadzwoń</span><span>+48 77 431 66 11</span></a>
+          <a href="mailto:kontakt@biuroadmin.online?subject=Zapytanie%20o%20obs%C5%82ug%C4%99%20ksi%C4%99gow%C4%85"><span>Napisz e-mail</span><span>kontakt@biuroadmin.online</span></a>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Jana+Paw%C5%82a+II+15%2C+48-370+Paczk%C3%B3w"><span>Wyznacz trasę</span><span>Paczków</span></a>
+        </div>
+      </div>
+      <aside class="contact-details sans" aria-label="Dane biura">
+        <dl>
+          <dt>Adres</dt><dd>ul. Jana Pawła II 15<br>48-370 Paczków</dd>
+          <dt>Godziny pracy</dt><dd>Poniedziałek–piątek<br>8:00–16:00</dd>
+          <dt>Dane rejestrowe</dt><dd>JAROSŁAW KONIK BIURO RACHUNKOWE<br>NIP 7532190370<br>REGON 160059549</dd>
+          <dt>Obsługa online</dt><dd>Paczków i cała Polska</dd>
+        </dl>
+        <p class="trust-line">Wiadomości dotyczące nowej współpracy kieruj na adres kontaktowy. Poufne dokumenty udostępniamy i odbieramy wyłącznie uzgodnionym, bezpiecznym kanałem.</p>
+      </aside>
+    </div>
+  </section>
 
 </main>
 
@@ -371,8 +469,11 @@
     NIP <span class="nip">7532190370</span> · REGON <span class="nip">160059549</span> · tel. +48 77 431 66 11<br>
     Księgowość, kadry, płace i rozliczenia ZUS
     <nav>
+      <a href="#uslugi">Usługi</a>
+      <a href="#wspolpraca">Współpraca</a>
+      <a href="#blog">Wiedza</a>
+      <a href="/kontakt/">Kontakt</a>
       <a href="https://portal.biuroadmin.online/">Strefa Klienta</a>
-      <a href="#blog">Blog</a>
       <a href="/llms.txt" title="Dla agentów AI i modeli LLM">llms.txt</a>
       <a href="https://ksef.podatki.gov.pl/">Krajowy System e-Faktur</a>
     </nav>
